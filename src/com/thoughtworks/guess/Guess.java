@@ -7,8 +7,8 @@ public class Guess {
     private CompareNumber comparator = new CompareNumber();
 
     /*用户输入并获取结果*/
-    public String getResult (String input) {
+    public String getResult(String input) {
         String answer = generator.getAnswer();
-        return comparator.getResult(answer,input);
+        return comparator.getResult(answer, input);
     }
 }

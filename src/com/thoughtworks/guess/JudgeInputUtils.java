@@ -3,6 +3,7 @@ package com.thoughtworks.guess;
 import java.util.HashSet;
 import java.util.Set;
 
+/*输入格式判断工具类*/
 public class JudgeInputUtils {
 
     private static JudgeInputUtils instance;
