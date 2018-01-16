@@ -8,7 +8,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class CompareNumberTest {
 
-    CompareNumber comparator = new CompareNumber();
+    private CompareNumber comparator = new CompareNumber();
 
     @Test
     public void test4A0B () {

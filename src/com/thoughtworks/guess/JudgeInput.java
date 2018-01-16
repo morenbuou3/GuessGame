@@ -4,13 +4,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class JudgeInput {
-
+    /*判断输入是否合法*/
     public boolean judge (String input) {
-        if (judgeNumber(input) && judgeNumberBit(input) && judgeNumberRepeat(input)) {
-            return true;
-        } else {
-            return false;
-        }
+        return judgeNumber(input) && judgeNumberBit(input) && judgeNumberRepeat(input);
     }
 
     /*判断数字*/
@@ -26,11 +22,7 @@ public class JudgeInput {
 
     /*判断数字位数*/
     private boolean judgeNumberBit (String input) {
-        if (input.length() != 4) {
-            return false;
-        } else {
-            return true;
-        }
+        return input.length() == 4;
     }
 
     /*判断数字重复*/
@@ -39,10 +31,6 @@ public class JudgeInput {
         for (int i = 0; i < input.length(); i++) {
             numberSet.add(input.charAt(i));
         }
-        if (numberSet.size() != input.length()) {
-            return false;
-        } else {
-            return true;
-        }
+        return numberSet.size() == input.length();
     }
 }

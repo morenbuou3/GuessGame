@@ -22,7 +22,7 @@ public class GameMain {
                 continue;
             }
             String answer = guess.getResult(input);
-            if (answer == "4A0B") {
+            if ("4A0B".equals(answer)) {
                 System.out.println("Congratulations!");
                 break;
             }
