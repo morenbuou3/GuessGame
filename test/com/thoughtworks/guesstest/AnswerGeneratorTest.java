@@ -15,27 +15,36 @@ public class AnswerGeneratorTest {
 
     @Test
     public void testIsNumber () {
-        String randomNumber = generator.getAnswer();
         boolean result = true;
-        for (int i = 0; i < randomNumber.length(); i++) {
-            if (!Character.isDigit(randomNumber.charAt(i))) {
-                result = false;
-                break;
+        int repeat = 1000;
+        while (result && repeat > 0) {
+            String randomNumber = generator.getAnswer();
+            for (int i = 0; i < randomNumber.length(); i++) {
+                if (!Character.isDigit(randomNumber.charAt(i))) {
+                    result = false;
+                    break;
+                }
             }
+            repeat--;
         }
         assertThat(result,is(true));
     }
 
     @Test
     public void testNotRepeat () {
-        String randomNumber = generator.getAnswer();
         Set<Character> numberSet = new HashSet<>();
         boolean result = true;
-        for (int i = 0; i < randomNumber.length(); i++) {
-            numberSet.add(randomNumber.charAt(i));
-        }
-        if (numberSet.size() != randomNumber.length()) {
-            result = false;
+        int repeat = 1000;
+        while (result && repeat > 0) {
+            String randomNumber = generator.getAnswer();
+            numberSet.clear();
+            for (int i = 0; i < randomNumber.length(); i++) {
+                numberSet.add(randomNumber.charAt(i));
+            }
+            if (numberSet.size() != randomNumber.length()) {
+                result = false;
+            }
+            repeat--;
         }
         assertThat(result,is(true));
     }
@@ -44,7 +53,8 @@ public class AnswerGeneratorTest {
     public void testIsRandom () {
         Set<String> numberSet = new HashSet<>();
         boolean result = true;
-        for (int i = 0; i < 1000; i++) {
+        int repeat = 1000;
+        for (int i = 0; i < repeat; i++) {
             String randomNumber = generator.getAnswer();
             numberSet.add(randomNumber);
         }
@@ -56,10 +66,14 @@ public class AnswerGeneratorTest {
 
     @Test
     public void testIs4Digit () {
-        String randomNumber = generator.getAnswer();
         boolean result = true;
-        if (randomNumber.length() != 4) {
-            result = false;
+        int repeat = 1000;
+        while (result && repeat > 0) {
+            String randomNumber = generator.getAnswer();
+            if (randomNumber.length() != 4) {
+                result = false;
+            }
+            repeat--;
         }
         assertThat(result,is(true));
     }
