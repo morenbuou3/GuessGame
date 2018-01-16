@@ -3,10 +3,25 @@ package com.thoughtworks.guess;
 import java.util.HashSet;
 import java.util.Set;
 
-public class JudgeInput {
+public class JudgeInputUtils {
+
+    private static JudgeInputUtils instance;
+    private JudgeInputUtils() {}
+
     /*判断输入是否合法*/
-    public boolean judge (String input) {
-        return judgeNumber(input) && judgeNumberBit(input) && judgeNumberRepeat(input);
+    public static boolean judge (String input) {
+        if (instance == null) {
+            instance = new JudgeInputUtils();
+        }
+        return instance.judgeNumber(input)
+                && instance.judgeNumberBit(input)
+                && instance.judgeNumberRepeat(input)
+                && instance.judgeIsEmpty(input);
+    }
+
+    /*判断是否为空*/
+    private boolean judgeIsEmpty (String input) {
+        return input != null && input.trim().length() != 0;
     }
 
     /*判断数字*/

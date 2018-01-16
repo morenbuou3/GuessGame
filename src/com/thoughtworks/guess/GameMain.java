@@ -7,7 +7,6 @@ public class GameMain {
     public static void main(String[] args) {
 
         Guess guess = new Guess();
-        JudgeInput judgeInput = new JudgeInput();
 
         Scanner sc = new Scanner(System.in);
         int count = 6;
@@ -17,7 +16,7 @@ public class GameMain {
             System.out.println("");
             System.out.print("Please input your number (" + count + "):");
             String input = sc.next();
-            if (!judgeInput.judge(input)) {
+            if (!JudgeInputUtils.judge(input)) {
                 System.out.println("Cannot input duplicate numbers!");
                 continue;
             }
